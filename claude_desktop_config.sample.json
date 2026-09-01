@@ -1,0 +1,35 @@
+{
+  "_comment": "Add the block inside 'mcpServers' to your Claude Desktop config.",
+  "_comment2": "Claude Desktop config location:",
+  "_comment3": "  Windows : %APPDATA%\\Claude\\claude_desktop_config.json",
+  "_comment4": "  macOS   : ~/Library/Application Support/Claude/claude_desktop_config.json",
+  "_comment5": "  Linux   : ~/.config/claude/claude_desktop_config.json",
+  "_comment6": "",
+  "_comment7": "Build the JAR first:  mvn clean package -DskipTests  (or  .\\gradlew.bat shadowJar)",
+
+  "mcpServers": {
+    "devlens": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "C:\\Users\\vijay\\CascadeProjects\\DevLens\\target\\devlens.jar"
+      ],
+      "env": {
+        "DEVLENS_DATA_DIR": "C:\\Users\\vijay\\CascadeProjects\\DevLens\\devlens-data"
+      }
+    },
+
+    "_devlens-gradle": {
+      "_comment": "Uncomment this block (and remove the underscore prefix) to use the Gradle JAR instead.",
+      "command": "java",
+      "args": [
+        "-jar",
+        "C:\\Users\\vijay\\CascadeProjects\\DevLens\\build\\libs\\devlens.jar"
+      ],
+      "env": {
+        "DEVLENS_DATA_DIR": "C:\\Users\\vijay\\CascadeProjects\\DevLens\\devlens-data"
+      }
+    }
+  }
+}
+

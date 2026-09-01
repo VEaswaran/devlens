@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <!-- ── 1. Build fat JAR (Maven) ──────────────────────────────────────────── -->
+  <configuration default="false" name="1. Build JAR (Maven)" type="MavenRunConfiguration" factoryName="Maven">
+    <MavenSettings>
+      <option name="myGoals" value="clean package -DskipTests"/>
+      <option name="myWorkingDirPath" value="$PROJECT_DIR$"/>
+    </MavenSettings>
+  </configuration>
+</component>
+

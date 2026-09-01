@@ -1,0 +1,9 @@
+target/
+.gradle/
+build/
+.git/
+devlens-data/
+*.md
+.github/
+src/test/
+

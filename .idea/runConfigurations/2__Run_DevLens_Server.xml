@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="2. Run DevLens Server" type="Application" factoryName="Application">
+    <envs>
+      <env name="DEVLENS_DATA_DIR" value="$PROJECT_DIR$/devlens-data" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.devlens.DevLensServer" />
+    <module name="DevLens" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

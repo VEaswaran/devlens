@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <!-- ── 4. Full verify (unit + fat jar + integration tests) ───────────────── -->
+  <configuration default="false" name="4. Full Verify (Maven)" type="MavenRunConfiguration" factoryName="Maven">
+    <MavenSettings>
+      <option name="myGoals" value="clean verify"/>
+      <option name="myWorkingDirPath" value="$PROJECT_DIR$"/>
+      <option name="myEnvironmentVariables">
+        <envs>
+          <env name="DEVLENS_DATA_DIR" value="$PROJECT_DIR$/devlens-data"/>
+        </envs>
+      </option>
+    </MavenSettings>
+  </configuration>
+</component>
+

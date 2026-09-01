@@ -1,0 +1,39 @@
+# Gradle-based Dockerfile
+# Uses the fat JAR produced by `./gradlew shadowJar` (build/libs/devlens.jar).
+# For the Maven-based image see Dockerfile.
+
+# ── Build stage (optional: only needed if building inside Docker) ─────────────
+# To build from source inside Docker instead of copying a pre-built JAR,
+# uncomment this block and comment out the COPY in the runtime stage.
+#
+# FROM eclipse-temurin:17-jdk-alpine AS build
+# WORKDIR /build
+# COPY gradlew settings.gradle.kts build.gradle.kts ./
+# COPY gradle ./gradle
+# RUN chmod +x gradlew
+# RUN --mount=type=cache,target=/root/.gradle \
+#     ./gradlew dependencies --no-daemon -q 2>/dev/null || true
+# COPY src ./src
+# RUN --mount=type=cache,target=/root/.gradle \
+#     ./gradlew shadowJar --no-daemon
+
+# ── Runtime stage ─────────────────────────────────────────────────────────────
+FROM eclipse-temurin:17-jre-alpine
+LABEL org.opencontainers.image.title="DevLens MCP Server (Gradle)"
+LABEL org.opencontainers.image.description="Statically-extracted, provenance-tagged repo facts via MCP (STDIO transport)"
+
+# Non-root user for security
+RUN addgroup -S devlens && adduser -S -G devlens devlens
+USER devlens
+
+WORKDIR /app
+# Copy the fat JAR from the Gradle output directory
+COPY build/libs/devlens.jar devlens.jar
+
+# devlens-data is mounted at runtime by the MCP client.
+ENV DEVLENS_DATA_DIR=/data
+
+# STDIO transport: stdin/stdout are the JSON-RPC channel.
+# Nothing may print to stdout — it corrupts the protocol stream.
+ENTRYPOINT ["java", "-jar", "/app/devlens.jar"]
+

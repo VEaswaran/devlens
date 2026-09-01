@@ -1,0 +1,22 @@
+<component name="ProjectRunConfigurationManager">
+  <!-- ── 5. Build fat JAR (Gradle) ─────────────────────────────────────────── -->
+  <configuration default="false" name="5. Build JAR (Gradle)" type="GradleRunConfiguration" factoryName="Gradle">
+    <ExternalSystemSettings>
+      <option name="executionName"/>
+      <option name="externalProjectPath" value="$PROJECT_DIR$"/>
+      <option name="externalSystemIdString" value="GRADLE"/>
+      <option name="scriptParameters" value="--no-daemon"/>
+      <option name="taskDescriptions">
+        <list/>
+      </option>
+      <option name="taskNames">
+        <list>
+          <option value="shadowJar"/>
+        </list>
+      </option>
+      <option name="vmOptions"/>
+    </ExternalSystemSettings>
+    <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+  </configuration>
+</component>
+
